@@ -1,6 +1,5 @@
 Treebook::Application.routes.draw do
-  devise_for :users
-
+  devise_for :user
   resources :statuses
   root to: 'statuses#index'
 
