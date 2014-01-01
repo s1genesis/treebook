@@ -2,5 +2,11 @@ michael:
    first_name: "Michael"
    last_name: "Morales"
    email: "morales_michael@fastmail.fm"
-   profile_name: "mmorales"
+   profile_name: "MichaelMorales"
+   
+mike:
+   first_name: "Mike"
+   last_name: "Morales"
+   email: "morales_mike2003@yahoo.com"
+   profile_name: "djmike"
 
