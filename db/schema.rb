@@ -11,7 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131223031702) do
+ActiveRecord::Schema.define(:version => 20140105012918) do
+
+  create_table "documents", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "statuses", :force => true do |t|
     t.text     "content"
@@ -21,6 +26,17 @@ ActiveRecord::Schema.define(:version => 20131223031702) do
   end
 
   add_index "statuses", ["user_id"], :name => "index_statuses_on_user_id"
+
+  create_table "user_friendships", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "friend_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "state"
+  end
+
+  add_index "user_friendships", ["state"], :name => "index_user_friendships_on_state"
+  add_index "user_friendships", ["user_id", "friend_id"], :name => "index_user_friendships_on_user_id_and_friend_id"
 
   create_table "users", :force => true do |t|
     t.string   "first_name"
