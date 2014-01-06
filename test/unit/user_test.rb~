@@ -1,6 +1,9 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
+    should have_many(:user_friendships)
+    should have_many(:friends)
+  
     test "a user should enter a first name" do
     user = User.new
     assert !user.save
@@ -28,7 +31,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
     test "a user should have a profile name without spaces" do
-       user = User.new(first_name: 'Michael', last_name: 'Morales', email: 'morales_michael@fastmail.fm')
+       user = User.new(first_name: 'Michael', last_name: 'Morales', email: 'morales_mike2003@yahoo.com')
        user.password = user.password_confirmation = 'password'
        
        
@@ -40,10 +43,10 @@ class UserTest < ActiveSupport::TestCase
   end
   
   test "a user can have a correctly formatted profile name" do
-     user = User.new(first_name: 'Michael', last_name: 'Morales', email: 'morales_michael@fastmail.fm')
+     user = User.new(first_name: 'Michael', last_name: 'Morales', email: 'morales_mike2003@yahoo.com')
      user.password = user.password_confirmation = 'password'
      
      user.profile_name = 'djmike'
-     assert !user.valid?
+     assert user.valid?
   end
 end
